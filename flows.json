@@ -1,0 +1,237 @@
+[
+    {
+        "id": "758c77babb6b110f",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c48ce23d90a87103",
+        "type": "board-config",
+        "board": "GrovePi v1.2.3"
+    },
+    {
+        "id": "e3ba9bbff20d65f2",
+        "type": "grove digital sensor",
+        "z": "758c77babb6b110f",
+        "name": "Teplota/Vlhkost",
+        "board": "c48ce23d90a87103",
+        "sensor": "dht11",
+        "repeat": "30",
+        "pin": "7",
+        "x": 100,
+        "y": 400,
+        "wires": [
+            [
+                "bfeeb5b865766793",
+                "60bb495e0389ea23"
+            ]
+        ]
+    },
+    {
+        "id": "cf26525f20b4560a",
+        "type": "debug",
+        "z": "758c77babb6b110f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "84e0cfc08a5c2001",
+        "type": "grove digital event",
+        "z": "758c77babb6b110f",
+        "name": "Tlacitko",
+        "board": "c48ce23d90a87103",
+        "sensor": "button",
+        "pin": "2",
+        "x": 70,
+        "y": 500,
+        "wires": [
+            [
+                "a930163c0b7984bf"
+            ]
+        ]
+    },
+    {
+        "id": "a930163c0b7984bf",
+        "type": "grove digital output",
+        "z": "758c77babb6b110f",
+        "name": "LED",
+        "board": "c48ce23d90a87103",
+        "pin": "3",
+        "x": 230,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "236737c8022425bf",
+        "type": "grove analog sensor",
+        "z": "758c77babb6b110f",
+        "name": "Zvuk",
+        "pin": "0",
+        "sensor": "sound",
+        "repeat": "30",
+        "board": "c48ce23d90a87103",
+        "x": 70,
+        "y": 580,
+        "wires": [
+            [
+                "b13c4958bc91f446"
+            ]
+        ]
+    },
+    {
+        "id": "a4bfefa50d5fdcdb",
+        "type": "grove analog sensor",
+        "z": "758c77babb6b110f",
+        "name": "Svetlo",
+        "pin": "1",
+        "sensor": "light",
+        "repeat": "30",
+        "board": "c48ce23d90a87103",
+        "x": 70,
+        "y": 660,
+        "wires": [
+            [
+                "1942df8dd6f5d812"
+            ]
+        ]
+    },
+    {
+        "id": "59b446c3a9aba3c4",
+        "type": "file",
+        "z": "758c77babb6b110f",
+        "name": "",
+        "filename": "/home/pi/data/TeplotaaVlhkost.csv",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 520,
+        "y": 400,
+        "wires": [
+            [
+                "cf26525f20b4560a"
+            ]
+        ]
+    },
+    {
+        "id": "bfeeb5b865766793",
+        "type": "csv",
+        "z": "758c77babb6b110f",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "once",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 290,
+        "y": 400,
+        "wires": [
+            [
+                "59b446c3a9aba3c4"
+            ]
+        ]
+    },
+    {
+        "id": "b13c4958bc91f446",
+        "type": "file",
+        "z": "758c77babb6b110f",
+        "name": "",
+        "filename": "/home/pi/data/Zvuk.csv",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 430,
+        "y": 580,
+        "wires": [
+            [
+                "1d721155bccbc068"
+            ]
+        ]
+    },
+    {
+        "id": "1942df8dd6f5d812",
+        "type": "file",
+        "z": "758c77babb6b110f",
+        "name": "",
+        "filename": "/home/pi/data/Svetlo.csv",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 430,
+        "y": 660,
+        "wires": [
+            [
+                "b0d8dba96c628df7"
+            ]
+        ]
+    },
+    {
+        "id": "1d721155bccbc068",
+        "type": "debug",
+        "z": "758c77babb6b110f",
+        "name": "Zvuk",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "b0d8dba96c628df7",
+        "type": "debug",
+        "z": "758c77babb6b110f",
+        "name": "Svetlo",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "60bb495e0389ea23",
+        "type": "debug",
+        "z": "758c77babb6b110f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 280,
+        "wires": []
+    }
+]
